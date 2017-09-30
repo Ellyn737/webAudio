@@ -48,19 +48,14 @@ var allFrequencies = [
     23679.6430535446,   25087.70790283195,  26579.50064511649,
     28160,              29834.480737157748, 31608.53128039195];
 
-
-var input = document.getElementById("midiInput");
-var output = document.getElementById("output");
-var myButton = document.getElementById("frequencyBtn");
-
 function calculateFrequency(value){
     return allFrequencies[value];
 }
 
-myButton.addEventListener('mousedown', function(e){
-    if(input.value <= 127 && input.value >=0){
-        output.innerHTML = calculateFrequency(input.value);
+document.getElementById("frequencyBtn").addEventListener('mousedown', function(e){
+    if(document.getElementById("midiInput").value <= 127 && document.getElementById("midiInput").value >=0){
+        document.getElementById("output").innerHTML = calculateFrequency(input.value);
     }else{
-      output.innerHTML = "please enter a number between 0 and 127."
+      document.getElementById("output").innerHTML = "please enter a number between 0 and 127."
     }
 })
