@@ -1,0 +1,22 @@
+h1{
+    color: azure
+}
+
+div{
+    background-color: black
+}
+
+
+p{
+    color: aliceblue
+}
+
+#wrapper{
+    width: 500px;
+    
+}
+
+button{
+    background-color: crimson;
+    color: chartreuse;
+}
