@@ -1,15 +1,25 @@
 var context = new AudioContext();
 var request = new XMLHttpRequest();
+var drumPads = document.getElementsByClassName("drumPad");
 
-request.open('GET', "sound.wav", true);
-request.responseType = 'arraybuffer';
-request.onload = function(){
-    var undecodedAudio = request.response;
-    context.decodeAudioData(undecodedAudio, function(buffer){
-        var sourceBuffer = context.createBufferSource();
-        sourceBuffer.buffer = buffer;
-        sourceBuffer.connect(context.destination);
-        sourceBuffer.start(context.currentTime);
+var soundArray = [];
+var mediaSourceArray = [];
+
+for(var i = 0; i < drumPads.length; i++){
+    drumPads.getElementById("box" + (i+1)).addEventListener('mousedown', function(e){
+        playSound(e);
     });
-};
-request.send();
+    
+    soundArray[i] = new Audio("sounds/sound"+(i+1)+".wav");
+    mediaSourceArray[i] = context.createMediaElementSource(soundArray[i]);
+    
+    mediaSourceArray[i].connect(context.destination);
+}
+
+
+function playSound(e){
+    var number = e.target.id.substring(e.target.id.length-1);
+    soundArray[number].play();
+}
+
+
