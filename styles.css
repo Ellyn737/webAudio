@@ -1,0 +1,19 @@
+#box1{
+    background-color: aquamarine;
+    float: left;
+}
+
+#box2{
+    background-color: blue;
+    float: right;
+}
+
+#box3{
+    background-color: dodgerblue;
+    float: left;
+}
+
+#box4{
+    background-color: deepskyblue;
+    float: right;
+}
